@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Drawing;
+
 
 
 namespace API.Entities
@@ -11,14 +11,15 @@ namespace API.Entities
     {
         
 
+        public int id { get; set; }
         public string productName { get ; set;}
 
-        public string price { get ; set;}
+        public decimal price { get ; set;}
 
 
         public string description { get ; set;}
 
-        public Image photo { get ; set;}
+        public byte photo { get ; set;}
 
     }
 }

@@ -10,7 +10,7 @@ namespace API.Entities
         
     
 
-
+        public int id { get; set; }
         public string location { get ; set;}
 
         public int number { get ; set;}
