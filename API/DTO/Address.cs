@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace API.Entities
 {
@@ -9,8 +9,9 @@ namespace API.Entities
     {
         
     
-
+        [Key]
         public int id { get; set; }
+        public int clientId { get; set; }
         public string location { get ; set;}
 
         public int number { get ; set;}

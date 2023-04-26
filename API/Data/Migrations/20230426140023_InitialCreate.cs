@@ -14,8 +14,9 @@ namespace API.Data.Migrations
                 name: "Addresses",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    clientId = table.Column<int>(type: "INTEGER", nullable: false),
                     location = table.Column<string>(type: "TEXT", nullable: true),
                     number = table.Column<int>(type: "INTEGER", nullable: false),
                     city = table.Column<string>(type: "TEXT", nullable: true),
@@ -24,14 +25,14 @@ namespace API.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Addresses", x => x.Id);
+                    table.PrimaryKey("PK_Addresses", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Clients",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    clientId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     clientName = table.Column<string>(type: "TEXT", nullable: true),
                     email = table.Column<string>(type: "TEXT", nullable: true),
@@ -39,23 +40,23 @@ namespace API.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Clients", x => x.Id);
+                    table.PrimaryKey("PK_Clients", x => x.clientId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Products",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    productId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     productName = table.Column<string>(type: "TEXT", nullable: true),
-                    price = table.Column<string>(type: "TEXT", nullable: true),
+                    price = table.Column<decimal>(type: "TEXT", nullable: false),
                     description = table.Column<string>(type: "TEXT", nullable: true),
                     photo = table.Column<byte>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Products", x => x.Id);
+                    table.PrimaryKey("PK_Products", x => x.productId);
                 });
         }
 

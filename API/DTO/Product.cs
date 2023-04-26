@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 
 
@@ -10,8 +9,8 @@ namespace API.Entities
     public class Product
     {
         
-
-        public int id { get; set; }
+        [Key]
+        public int productId { get; set; }
         public string productName { get ; set;}
 
         public decimal price { get ; set;}

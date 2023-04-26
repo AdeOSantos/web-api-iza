@@ -79,7 +79,9 @@ The application uses Entity Framework and you can check the Entity Framework doc
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Download the source code and run locally. The URL for the API is set to: http://localhost:8080/
+Download the source code and run locally. The URL for the API is set to: http://localhost:5001/
+
+Use https://localhost:5001/swagger/index.html to see all API endpoints.
 
 ### Prerequisites
 
@@ -92,11 +94,12 @@ It should have the .NET installed. The project was created under .NET 7 version.
 1. Get a free API Key at [https://example.com](https://example.com)
 2. Clone the repo
    ```sh
-   git clone https://github.com/AdeOSantos/web-api-ontop.git
+   git clone https://github.com/AdeOSantos/web-api-iza.git
    ```
-3. Install NPM packages
+3. Install NuGet packages
    ```sh
-   npm install
+   Microsoft.EntityFrameworkCore.Sqlite
+   Microsoft.EntityFrameworkCore.Design
    ```
 4. Enter your API in `config.js`
    ```js

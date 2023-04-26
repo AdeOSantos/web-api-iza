@@ -18,7 +18,7 @@ namespace API.Data.Migrations
 
             modelBuilder.Entity("API.Entities.Address", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -27,6 +27,9 @@ namespace API.Data.Migrations
 
                     b.Property<string>("city")
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("clientId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("location")
                         .HasColumnType("TEXT");
@@ -37,14 +40,14 @@ namespace API.Data.Migrations
                     b.Property<string>("state")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
 
                     b.ToTable("Addresses");
                 });
 
             modelBuilder.Entity("API.Entities.Client", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("clientId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -57,14 +60,14 @@ namespace API.Data.Migrations
                     b.Property<string>("password")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("clientId");
 
                     b.ToTable("Clients");
                 });
 
             modelBuilder.Entity("API.Entities.Product", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("productId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -74,13 +77,13 @@ namespace API.Data.Migrations
                     b.Property<byte>("photo")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("price")
+                    b.Property<decimal>("price")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("productName")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("productId");
 
                     b.ToTable("Products");
                 });
