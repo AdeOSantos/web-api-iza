@@ -2,6 +2,8 @@ using API.Data;
 using API.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using API.Errors;
+
 
 namespace API.Controllers
 {
@@ -18,19 +20,23 @@ namespace API.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
         public async Task<ActionResult<List<Product>>> GetProducts()
         {
-            
-            var products = await _context.Products.ToListAsync();
+            var products = await _context.Products.;
             return products;    
-
         }
         
 
         [HttpGet("{id}")]
-        public string GetProduct(int id)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            return "this will be a product";
+            var product = await _context.Products.FindAsync(id);
+            if (product == null) return NotFound(new ApiResponse(404));
+            return product;
         }
 
     }
